@@ -1,9 +1,15 @@
+// models/Image.js
 const mongoose = require('mongoose');
 
 const imageSchema = new mongoose.Schema({
-  url: String,
-  uploadedBy: String,
-  uploadedAt: { type: Date, default: Date.now },
-});
+  url: {
+    type: String,
+    required: true,
+  },
+  public_id: {
+    type: String,
+    required: true,
+  }
+}, { timestamps: true });
 
 module.exports = mongoose.model('Image', imageSchema);
